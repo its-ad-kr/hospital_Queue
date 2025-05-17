@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Queue Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-hospital"></i> Hospital Queue System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" id="patientTab">Patient Portal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="staffTab">Staff Portal</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Patient Portal -->
+        <div id="patientPortal" class="portal-section">
+            <!-- Patient Form -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5><i class="fas fa-user-plus"></i> Join Queue</h5>
+                </div>
+                <div class="card-body">
+                    <form id="patientForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="patientName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="patientPhone" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Department</label>
+                                <select class="form-select" id="department" required>
+                                    <option value="">Select Department</option>
+                                    <option value="emergency">Emergency</option>
+                                    <option value="general">General Medicine</option>
+                                    <option value="cardiology">Cardiology</option>
+                                    <option value="pediatrics">Pediatrics</option>
+                                    <option value="orthopedics">Orthopedics</option>
+                                    <option value="neurology">Neurology</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Priority Level</label>
+                                <select class="form-select" id="priority" required>
+                                    <option value="normal">Normal</option>
+                                    <option value="urgent">Urgent</option>
+                                    <option value="emergency">Emergency</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Brief Description</label>
+                            <textarea class="form-control" id="description" rows="2" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Join Queue</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Queue Status -->
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-list"></i> Current Queue Status</h5>
+                </div>
+                <div class="card-body">
+                    <div class="queue-stats mb-3">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="stat-card">
+                                    <i class="fas fa-users"></i>
+                                    <span>Total Patients: </span>
+                                    <span id="totalPatients">0</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stat-card">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Avg. Wait Time: </span>
+                                    <span id="avgWaitTime">0</span> min
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stat-card">
+                                    <i class="fas fa-user-clock"></i>
+                                    <span>Your Position: </span>
+                                    <span id="yourPosition">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="queueList" class="queue-list">
+                        <!-- Queue items will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Staff Portal -->
+        <div id="staffPortal" class="portal-section d-none">
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="staffPortal">
+                    <!-- Staff Login Form -->
+                    <div class="card mb-4" id="staffLoginForm">
+                        <div class="card-body">
+                            <h5 class="card-title">Staff Login</h5>
+                            <form id="staffAuthForm">
+                                <div class="mb-3">
+                                    <label for="staffId" class="form-label">Staff ID</label>
+                                    <input type="text" class="form-control" id="staffId" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="staffPassword" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="staffPassword" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Staff Dashboard (Initially Hidden) -->
+                    <div class="d-none" id="staffDashboard">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title mb-0">Queue Management</h5>
+                                    <button class="btn btn-outline-danger" id="staffLogout">
+                                        <i class="fas fa-sign-out-alt"></i> Logout
+                                    </button>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-group mb-3">
+                                            <input type="number" class="form-control" id="capacityInput" 
+                                                   placeholder="Set waiting room capacity" min="1">
+                                            <button class="btn btn-primary" id="updateCapacity">
+                                                Update Capacity
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex gap-2">
+                                            <button class="btn btn-success" id="callNextPatient">
+                                                <i class="fas fa-user-check"></i> Call Next Patient
+                                            </button>
+                                            <button class="btn btn-warning ms-2" id="pauseQueue">
+                                                <i class="fas fa-pause"></i> Pause Queue
+                                            </button>
+                                            <button class="btn btn-danger ms-2" id="clearQueue">
+                                                <i class="fas fa-trash"></i> Clear Queue
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Queue List -->
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Position</th>
+                                        <th>Name</th>
+                                        <th>Department</th>
+                                        <th>Priority</th>
+                                        <th>Wait Time</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="staffQueueList">
+                                    <!-- Staff queue items will be dynamically added here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

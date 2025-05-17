@@ -1,0 +1,427 @@
+/* General Styles */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 60px;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand i {
+    margin-right: 8px;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('hospital-night.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 100px;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-content .lead {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.quick-stats {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.stat-item {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 150px;
+}
+
+.stat-item i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #3498db;
+}
+
+.stat-item span {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+.stat-item small {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Main Content */
+.main-content {
+    margin-top: 20px;
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 15px 20px;
+}
+
+.card-header h5 {
+    margin: 0;
+    color: #333;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* Queue Stats */
+.queue-stats {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card i {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.stat-card span {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Queue List */
+.queue-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.queue-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.queue-item .position {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.queue-item .name {
+    margin: 0 10px;
+}
+
+.queue-item .department {
+    color: #666;
+}
+
+.queue-item .status {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+.status-waiting {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.status-called {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status-completed {
+    background-color: #f5f5f5;
+    color: #616161;
+}
+
+/* Form Styles */
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-select:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Button Styles */
+.btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+/* Table Styles */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 10px;
+    }
+
+    .queue-stats {
+        margin-bottom: 20px;
+    }
+
+    .stat-card {
+        margin-bottom: 15px;
+    }
+
+    .queue-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .queue-item .status {
+        margin-top: 10px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.queue-item {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Auth Forms */
+.auth-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.auth-form .card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.auth-form .form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Patient Dashboard */
+#patientDashboard .card {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#patientProfileInfo {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+#patientProfileInfo p {
+    margin-bottom: 10px;
+}
+
+#patientProfileInfo i {
+    width: 25px;
+    color: #6c757d;
+}
+
+/* Payment Section */
+#onlinePaymentSection {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+#onlinePaymentSection img {
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    background-color: white;
+}
+
+/* Form Validation Styles */
+.form-control.is-invalid {
+    border-color: #dc3545;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linecap='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+/* OTP Input Styles */
+.otp-input {
+    letter-spacing: 0.5em;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/* Alert Styles */
+.alert {
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.alert-info {
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    color: #004085;
+}
+
+/* Button Styles */
+.btn-group {
+    margin: 20px 0;
+}
+
+.btn-group .btn {
+    padding: 10px 30px;
+    font-size: 1.1em;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .auth-form {
+        padding: 10px;
+    }
+    
+    #patientDashboard .col-md-4,
+    #patientDashboard .col-md-8 {
+        margin-bottom: 20px;
+    }
+} 
